@@ -1,20 +1,12 @@
+import getMovements from "./functions/getMovements.js";
 
 const URL_API = "https://training-k4dg.onrender.com/movements";
 let movements = []
 let container = document.getElementById('container')
 
-const getMovements = async () => {
-  try {
-    const { data } = await axios.get(URL_API);
-    return data;
-  } catch (error) {
-    console.log(error);
-    return [];
-  }
-};
-
 document.addEventListener("DOMContentLoaded", async () => {
   movements = await getMovements();
+  console.log(movements);
   printMovements(movements, container)
   
 });
